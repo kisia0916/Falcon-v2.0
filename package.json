@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server":"ts-node ./server/serverMain.ts",
-    "client":"ts-node ./client/clientMain.ts",
-    "target":"ts-node ./target/targetMain.ts"
-
+    "server": "ts-node ./server/serverMain.ts",
+    "client": "ts-node ./client/clientMain.ts",
+    "target": "ts-node ./target/targetMain.ts"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +18,7 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
+    "@types/uuid": "^9.0.7",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   }
