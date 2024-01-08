@@ -6,7 +6,8 @@
   "scripts": {
     "server": "ts-node ./server/serverMain.ts",
     "client": "ts-node ./client/clientMain.ts",
-    "target": "ts-node ./target/targetMain.ts"
+    "target": "ts-node ./target/targetMain.ts",
+    "client2":"ts-node ./client/clientMain.ts"
   },
   "keywords": [],
   "author": "",

@@ -1,6 +1,7 @@
 import * as fs from "fs"
 import { setFormat } from "../dataFormat/setFormat"
 
+let splitList:any = []
 const splitSize:number = 1024
 
 const splitFileData = (data:any,fileSize:number) =>{
@@ -20,7 +21,6 @@ const splitFileData = (data:any,fileSize:number) =>{
 }
 
 export const sendFileMain = (client:any,dataSendClient:any,fileData:any,size:number)=>{
-    let splitList = []
     client.on("data",(data:string)=>{
         try{
             const getData = JSON.parse(data)
@@ -31,8 +31,19 @@ export const sendFileMain = (client:any,dataSendClient:any,fileData:any,size:num
                 }
             }
         }catch(error){
-
         }
 
     })
+}
+
+export const dataUpload = (sendClient:any)=>{
+    sendClient.write(splitList[0])
+}
+export const doneSplitUpload = (sendDataClient:any,client:any)=>{
+    splitList.splice(0,1)
+    if (splitList.length === 0){
+        client.write(setFormat("done_allData_upload","client",1,"done"))
+    }else{
+        dataUpload(sendDataClient)
+    }
 }
